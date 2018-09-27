@@ -189,17 +189,57 @@ void Game::chooseTile()
 	}
 }
 
+/*
+Method to place tiles with valid chechking for duplicates etc. TODO - make sure tiles get deleted before placing
+*/
 void Game::placeTile()
 {
 	sf::Window &window = *m_window.GetRenderWindow();
 	sf::Vector2i position = sf::Mouse::getPosition(window);
 
+	//Make it so the tiles are place in a grid, so % 32 gives this effect
 	int posX = position.x - (position.x % 32);
 	int posY = position.y - (position.y % 32);
 	sf::Vector2f vec(posX, posY);
-	spriteHolder.at(chosenTile).m_sprite.setPosition(vec);
-	spriteHolder.at(chosenTile).setChosenTile(chosenTile);
-	placedSprites.push_back(spriteHolder.at(chosenTile));
+	if(!placedSprites.empty())
+	{
+		for (auto i : placedSprites)
+		{
+			std::cout << "here";
+			if (vec == i.m_sprite.getPosition())
+			{
+				if (i.getChosenTile() == chosenTile)
+				{
+					break;
+				}
+				else
+				{
+					eraseTile();
+					spriteHolder.at(chosenTile).m_sprite.setPosition(vec);
+					spriteHolder.at(chosenTile).setChosenTile(chosenTile);
+					placedSprites.push_back(spriteHolder.at(chosenTile));
+					break;
+				}
+			}
+			else
+			{
+				spriteHolder.at(chosenTile).m_sprite.setPosition(vec);
+				spriteHolder.at(chosenTile).setChosenTile(chosenTile);
+				placedSprites.push_back(spriteHolder.at(chosenTile));
+			}
+			break;
+		}
+		/*spriteHolder.at(chosenTile).m_sprite.setPosition(vec);
+		spriteHolder.at(chosenTile).setChosenTile(chosenTile);
+		placedSprites.push_back(spriteHolder.at(chosenTile));
+		*/
+	}
+	else
+	{
+		spriteHolder.at(chosenTile).m_sprite.setPosition(vec);
+		spriteHolder.at(chosenTile).setChosenTile(chosenTile);
+		placedSprites.push_back(spriteHolder.at(chosenTile));
+	}
 
 }
 
