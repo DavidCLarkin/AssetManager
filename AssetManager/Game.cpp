@@ -13,6 +13,7 @@ Game::Game() : m_window("Tiling", sf::Vector2u(1280, 800))
 	spriteHolder = map.sliceTileset("tileset.png", sf::Vector2u(32, 32), 4, 32, 32);
 
 	setTilables();
+
         //return -1;
   //  else
        // mapSprite_=new sf::Sprite(map)
@@ -29,7 +30,7 @@ Window* Game::GetWindow(){ return &m_window; }
 /*	Method to load the "map.xml" file into the program and load the textures	*/
 bool Game::loadXML()
 {
-	placedSprites.empty();
+	placedSprites.clear();
 	XMLDocument xml_doc;
 
 	XMLError eResult = xml_doc.LoadFile("map.xml");
@@ -48,7 +49,7 @@ bool Game::loadXML()
 		const char* index = e->Attribute("index");
 
 		int posX = atoi(positionX), posY = atoi(positionY), in = atoi(index);
-		std::cout << posX << ", " << posY << ", " << in << std::endl;
+		//std::cout << posX << ", " << posY << ", " << in << std::endl;
 		if (posX <= 0 || posY <= 0 || in < 0) // Program can fail here if not checked
 			return false;
 			
@@ -61,8 +62,6 @@ bool Game::loadXML()
 			placedSprites.push_back(spriteHolder.at(in));
 		}
 
-		//return true;
-		//std::cout << "x: "<< placedSprites.at(0).getPosition().x << "y: "<<placedSprites.at(0).getPosition().y << std::endl;
 	}
 
 	return true;
@@ -144,8 +143,8 @@ void Game::saveXML()
 	{
 		sf::Sprite spr = placedSprites.at(i).m_sprite;
 		XMLElement *pListElement = saveFile.NewElement("Tile");
-		pListElement->SetAttribute("index", placedSprites.at(i).getChosenTile()); //TODO set index
 
+		pListElement->SetAttribute("index", placedSprites.at(i).getChosenTile());
 		pListElement->SetAttribute("x", spr.getPosition().x);
 		pListElement->SetAttribute("y", spr.getPosition().y);
 
@@ -259,12 +258,12 @@ void Game::Update()
 /*	Draw the Tiles to Choose From On Screen	*/
 void Game::setTilables()
 {
-	int space = 40;
+	int space = 0;
 	for (std::map<int, TextureHolder>::iterator it = spriteHolder.begin(); it != spriteHolder.end(); ++it)
 	{
 		sf::Sprite spr = it->second.m_sprite;
 		space += 40;
-		spr.setPosition(sf::Vector2f(space, 600));
+		spr.setPosition(sf::Vector2f(m_window.GetWindowSize().x - 50, space));
 		//std::cout << spr.getPosition().x << ", " << spr.getPosition().y << std::endl;
 		tilesToChoose.insert(std::pair<int, sf::Sprite>(it->first, spr));
 		//::cout << "size: " << tilesToChoose.size();
@@ -283,7 +282,6 @@ void Game::Render()
 
 	for (std::map<int, TextureHolder>::iterator it = tilesToChoose.begin(); it != tilesToChoose.end(); ++it)
 		m_window.GetRenderWindow()->draw((it->second.m_sprite));
-		
 
 	m_window.EndDraw();
 }

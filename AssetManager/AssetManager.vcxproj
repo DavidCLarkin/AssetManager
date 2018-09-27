@@ -150,7 +150,6 @@
   <ItemGroup>
     <ClInclude Include="AssetManager.hpp" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="Textbox.h" />
     <ClInclude Include="TextureHolder.h" />
     <ClInclude Include="TileMap.hpp" />
     <ClInclude Include="tinyxml2.h" />

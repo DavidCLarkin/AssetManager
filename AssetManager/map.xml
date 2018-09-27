@@ -1,19 +1,7 @@
 <Root>
     <Map>
-        <Tile index="3" x="544" y="448"/>
-        <Tile index="3" x="544" y="448"/>
-        <Tile index="3" x="576" y="448"/>
-        <Tile index="3" x="608" y="448"/>
-        <Tile index="3" x="672" y="448"/>
-        <Tile index="3" x="736" y="448"/>
-        <Tile index="1" x="512" y="416"/>
-        <Tile index="1" x="544" y="416"/>
-        <Tile index="1" x="512" y="384"/>
-        <Tile index="1" x="512" y="352"/>
-        <Tile index="1" x="544" y="384"/>
-        <Tile index="0" x="608" y="416"/>
-        <Tile index="0" x="640" y="448"/>
-        <Tile index="0" x="608" y="448"/>
-        <Tile index="0" x="672" y="448"/>
+        <Tile index="3" x="448" y="512"/>
+        <Tile index="3" x="512" y="544"/>
+        <Tile index="3" x="544" y="480"/>
     </Map>
 </Root>

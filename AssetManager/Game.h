@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 #include "Window.h"
-#include "Textbox.h"
+//#include "Textbox.h"
 #include "AssetManager.hpp"
 #include "TileMap.hpp"
 #include <iostream>
@@ -24,7 +24,6 @@ public:
 	void Update();
 	void Render();
 
-	bool mouseClicked = false;
 
 	sf::Time GetElapsed();
 	void RestartClock();

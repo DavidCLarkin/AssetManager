@@ -53,9 +53,6 @@
     <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Textbox.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Window.h">
       <Filter>Header Files</Filter>
     </ClInclude>

@@ -1,4 +1,4 @@
-#include "Textbox.h"
+/*#include "Textbox.h"
 
 Textbox::Textbox(){
 	Setup(5,9,200,sf::Vector2f(0,0));
@@ -51,3 +51,4 @@ void Textbox::Render(sf::RenderWindow& l_wind){
 		l_wind.draw(m_content);
 	}
 }
+*/
