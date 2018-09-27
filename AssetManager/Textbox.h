@@ -5,7 +5,8 @@
 
 using MessageContainer = std::vector<std::string>;
 
-class Textbox{
+class Textbox
+{
 public:
 	Textbox();
 	Textbox(int l_visible, int l_charSize, 

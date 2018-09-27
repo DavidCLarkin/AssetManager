@@ -3,7 +3,8 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 
-class Window{
+class Window
+{
 public:
 	Window();
 	Window(const std::string& title, const sf::Vector2u& size);

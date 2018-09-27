@@ -1,10 +1,7 @@
-//
 //  TileMap.hpp
-//  AssetManagerv1
+//  AssetManager
 //
-//  Created by Denis Flynn on 19/09/2018.
-//  Copyright © 2018 Denis Flynn. All rights reserved.
-//
+//  Created by David Larkin on 27/09/2018.
 
 #ifndef TileMap_hpp
 #define TileMap_hpp

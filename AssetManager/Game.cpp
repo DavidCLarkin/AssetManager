@@ -83,6 +83,7 @@ void Game::HandleInput()
 		//left
 	}
 
+	// Moused Button Pressed better so you only click once rather than holding it down and drawing the same sprite 100 times etc.
 	while (m_window.GetRenderWindow()->pollEvent(event))
 	{
 		switch (event.type)
@@ -218,6 +219,7 @@ void Game::Update()
 /*	Draw the Tiles to Choose From On Screen	*/
 void Game::setTilables()
 {
+	int space = 40;
 	for (std::map<int, TextureHolder>::iterator it = spriteHolder.begin(); it != spriteHolder.end(); ++it)
 	{
 		sf::Sprite spr = it->second.m_sprite;
