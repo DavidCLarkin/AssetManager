@@ -2,7 +2,6 @@
 
 #include <stdio.h>
 #include "Window.h"
-//#include "Textbox.h"
 #include "AssetManager.hpp"
 #include "TileMap.hpp"
 #include <iostream>

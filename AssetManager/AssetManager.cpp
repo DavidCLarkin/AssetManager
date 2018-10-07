@@ -1,6 +1,7 @@
 #include "AssetManager.hpp"
 
-namespace GameDevCpp {
+namespace GameDevCpp 
+{
     void AssetManager::loadTexture(std::string name, std::string fileName)
     {
         sf::Texture tex;

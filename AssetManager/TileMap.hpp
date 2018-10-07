@@ -13,8 +13,6 @@
 class TileMap : public sf::Drawable, public sf::Transformable
 {
 public:
-	//std::vector<sf::Texture> textureHolder;
-	//std::map<int, sf::Sprite> spriteHolder;
 
 	std::map<int, TextureHolder> sliceTileset(const std::string& tileset, sf::Vector2u tileSize, int noTiles, unsigned int width, unsigned int height)
 	{

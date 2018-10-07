@@ -4,20 +4,12 @@ Game::Game() : m_window("Tiling", sf::Vector2u(1280, 800))
 {
 	m_clock.restart();
 	srand(time(nullptr));
-    //mapSprite_ = nullptr;
 
 	m_elapsed = 0.0f;
-	//if (!map.load(//resourcePath() +//"terrain.png",
-	//	"tileset.png", sf::Vector2u(32, 32), level, 16, 16));
 
 	spriteHolder = map.sliceTileset("tileset.png", sf::Vector2u(32, 32), 4, 32, 32);
 
 	setTilables();
-
-        //return -1;
-  //  else
-       // mapSprite_=new sf::Sprite(map)
-	
 }
 
 Game::~Game(){}
@@ -57,9 +49,9 @@ bool Game::loadXML()
 		std::cout << atoi(index) << ", "<< positionX << ", " << positionY << std::endl;
 		if (spriteHolder.size() > 0)
 		{
-			spriteHolder.at(in).m_sprite.setPosition(posX, posY); //changing all characters to integers with atoi
+			spriteHolder.at(in).m_sprite.setPosition(posX, posY); //changing all characters to integers with atoi --- ->m_sprite
 			spriteHolder.at(in).setChosenTile(in);
-			placedSprites.push_back(spriteHolder.at(in));
+			placedSprites.push_back(spriteHolder.at(in)); 
 		}
 
 	}
@@ -82,7 +74,7 @@ void Game::HandleInput()
 		//left
 	}
 
-	// Moused Button Pressed better so you only click once rather than holding it down and drawing the same sprite 100 times etc.
+	// Moused Button Pressed is better so you only click once rather than holding it down and drawing the same sprite multiple times etc.
 	while (m_window.GetRenderWindow()->pollEvent(event))
 	{
 		switch (event.type)
@@ -95,32 +87,6 @@ void Game::HandleInput()
 			break;
 		}
 	}
-	/*if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-	{
-		if (!mouseClicked)
-		{
-			mouseClicked = true;
-			placeTile();
-		}
-		else
-		{
-			mouseClicked = false;
-		}
-	}
-
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Middle))
-	{
-		eraseTile();
-		std::cout << "size " <<  placedSprites.size()<< std::endl;
-	}
-	
-	
-
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
-	{
-		chooseTile();
-	}
-	*/
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
@@ -133,6 +99,9 @@ void Game::HandleInput()
 	}
 }
 
+/*
+* Method to save the map to a file
+*/
 void Game::saveXML()
 {
 	XMLDocument saveFile;
@@ -155,6 +124,9 @@ void Game::saveXML()
 	std::cout << "saved file" << std::endl;
 }
 
+/*
+* Method to erase a tile from the map
+*/
 void Game::eraseTile()
 {
 	sf::Window &window = *m_window.GetRenderWindow();
@@ -166,20 +138,23 @@ void Game::eraseTile()
 
 	for (int i = 0; i < placedSprites.size(); i++)
 	{
-		if (placedSprites.at(i).m_sprite.getPosition() == vec)
+		if (placedSprites.at(i).m_sprite.getPosition() == vec) 
 		{
 			placedSprites.erase(placedSprites.begin() + i);
 		}
 	}
 }
 
+/*
+* Method to choose a tile from rendered tiles
+*/
 void Game::chooseTile()
 {
 	sf::Window &window = *m_window.GetRenderWindow();
 	sf::Vector2i position = sf::Mouse::getPosition(window);
 	for (auto spr : tilesToChoose)
 	{
-		if (spr.second.m_sprite.getGlobalBounds().contains(position.x, position.y))
+		if (spr.second.m_sprite.getGlobalBounds().contains(position.x, position.y)) // changed to ->m_sprite
 		{
 			//std::cout << "inside" << std::endl;
 			chosenTile = spr.first;
@@ -204,10 +179,10 @@ void Game::placeTile()
 	{
 		for (auto i : placedSprites)
 		{
-			std::cout << "here";
-			if (vec == i.m_sprite.getPosition())
+			//std::cout << "here";
+			if (vec == i.m_sprite.getPosition()) //->
 			{
-				if (i.getChosenTile() == chosenTile)
+				if (i.getChosenTile() == chosenTile)//->
 				{
 					break;
 				}
@@ -224,14 +199,10 @@ void Game::placeTile()
 			{
 				spriteHolder.at(chosenTile).m_sprite.setPosition(vec);
 				spriteHolder.at(chosenTile).setChosenTile(chosenTile);
-				placedSprites.push_back(spriteHolder.at(chosenTile));
+				placedSprites.push_back(spriteHolder.at(chosenTile)); //added bracket and &
 			}
 			break;
 		}
-		/*spriteHolder.at(chosenTile).m_sprite.setPosition(vec);
-		spriteHolder.at(chosenTile).setChosenTile(chosenTile);
-		placedSprites.push_back(spriteHolder.at(chosenTile));
-		*/
 	}
 	else
 	{
@@ -246,13 +217,6 @@ void Game::Update()
 {
 	m_window.Update();
 	
-//   loat timestep = 1.0f / m_snake.GetSpeed();
-//    if(m_elapsed >= timestep){
-//
-//
-//        m_elapsed -= timestep;
-//
-//    }
 }
 
 /*	Draw the Tiles to Choose From On Screen	*/
@@ -274,7 +238,6 @@ void Game::Render()
 {
 	m_window.BeginDraw();
 
-	// Render here.
     m_window.GetRenderWindow()->draw(this->map);
 
 	for (const auto& spr : placedSprites)
