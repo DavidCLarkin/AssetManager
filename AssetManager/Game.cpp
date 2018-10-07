@@ -63,16 +63,6 @@ void Game::HandleInput()
 {
 
 	sf::Event event;
-	// Input handling.
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) ){
-		//scroll up
-	} else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) ){
-		//scroll down
-	} else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left) ){
-		//right
-	} else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
-		//left
-	}
 
 	// Moused Button Pressed is better so you only click once rather than holding it down and drawing the same sprite multiple times etc.
 	while (m_window.GetRenderWindow()->pollEvent(event))
@@ -82,20 +72,15 @@ void Game::HandleInput()
 		case sf::Event::MouseButtonPressed:
 			if (event.mouseButton.button == sf::Mouse::Left) { placeTile(); }
 			else if (event.mouseButton.button == sf::Mouse::Right) { chooseTile(); } 
-			else if (event.mouseButton.button == sf::Mouse::Middle) { eraseTile(); std::cout << "size " << placedSprites.size() << std::endl;	} break;
+			else if (event.mouseButton.button == sf::Mouse::Middle) { eraseTile(); std::cout << "size " << placedSprites.size() << std::endl;	} 
+			break;
+		case sf::Event::KeyPressed:
+			if (event.key.code == sf::Keyboard::S) { saveXML(); }
+			else if (event.key.code == sf::Keyboard::L) { loadXML(); }
+			break;
 		default:
 			break;
 		}
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-	{
-		saveXML();
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::L))
-	{
-		loadXML();
 	}
 }
 

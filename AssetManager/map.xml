@@ -20,10 +20,6 @@
         <Tile index="1" x="640" y="384"/>
         <Tile index="1" x="640" y="352"/>
         <Tile index="1" x="640" y="416"/>
-        <Tile index="1" x="640" y="320"/>
-        <Tile index="1" x="608" y="320"/>
-        <Tile index="1" x="608" y="320"/>
-        <Tile index="1" x="576" y="320"/>
         <Tile index="1" x="544" y="320"/>
         <Tile index="3" x="480" y="320"/>
         <Tile index="3" x="480" y="352"/>
@@ -47,12 +43,7 @@
         <Tile index="3" x="672" y="352"/>
         <Tile index="3" x="672" y="320"/>
         <Tile index="3" x="672" y="288"/>
-        <Tile index="3" x="608" y="288"/>
-        <Tile index="3" x="640" y="288"/>
-        <Tile index="3" x="512" y="288"/>
         <Tile index="3" x="480" y="288"/>
-        <Tile index="3" x="576" y="288"/>
-        <Tile index="3" x="544" y="288"/>
         <Tile index="2" x="576" y="448"/>
         <Tile index="2" x="544" y="352"/>
         <Tile index="2" x="608" y="384"/>
@@ -62,13 +53,8 @@
         <Tile index="0" x="480" y="352"/>
         <Tile index="0" x="512" y="384"/>
         <Tile index="0" x="480" y="384"/>
-        <Tile index="0" x="512" y="288"/>
         <Tile index="0" x="480" y="288"/>
         <Tile index="1" x="512" y="320"/>
-        <Tile index="0" x="544" y="288"/>
-        <Tile index="0" x="576" y="288"/>
-        <Tile index="0" x="608" y="288"/>
-        <Tile index="0" x="640" y="288"/>
         <Tile index="0" x="640" y="288"/>
         <Tile index="0" x="672" y="288"/>
         <Tile index="0" x="672" y="352"/>
@@ -89,5 +75,18 @@
         <Tile index="0" x="480" y="480"/>
         <Tile index="0" x="480" y="448"/>
         <Tile index="0" x="480" y="416"/>
+        <Tile index="0" x="448" y="384"/>
+        <Tile index="0" x="448" y="416"/>
+        <Tile index="0" x="448" y="448"/>
+        <Tile index="0" x="448" y="480"/>
+        <Tile index="3" x="512" y="288"/>
+        <Tile index="3" x="544" y="288"/>
+        <Tile index="3" x="576" y="288"/>
+        <Tile index="3" x="576" y="320"/>
+        <Tile index="3" x="608" y="320"/>
+        <Tile index="3" x="640" y="320"/>
+        <Tile index="3" x="608" y="288"/>
+        <Tile index="1" x="576" y="320"/>
+        <Tile index="1" x="608" y="320"/>
     </Map>
 </Root>
